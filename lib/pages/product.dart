@@ -11,7 +11,8 @@ class ProductPage extends StatelessWidget {
     return WillPopScope(
       onWillPop: () {
         print('Back button pressed!');
-        Navigator.pop(context);
+        Navigator.pop(context, false);
+        return Future.value(false);
       },
       child: Scaffold(
         appBar: AppBar(
@@ -29,7 +30,7 @@ class ProductPage extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: RaisedButton(
                 color: Theme.of(context).accentColor,
-                child: Text('DELEtE'),
+                child: Text('DELETE'),
                 onPressed: () => Navigator.pop(context, true),
               ),
             )
