@@ -10,7 +10,6 @@ class ProductsPage extends StatelessWidget {
 
   ProductsPage(this.products, this.addProduct, this.deleteProduct);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
