@@ -37,23 +37,29 @@ class Products extends StatelessWidget {
                       '\$${products[index]['price'].toString()}',
                       style: TextStyle(color: Colors.white),
                     ),
-                  )
+                  ),
                 ],
               )),
           DecoratedBox(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey, width: 1.0),
-              borderRadius: BorderRadius.circular(6.0)),
+                border: Border.all(color: Colors.grey, width: 1.0),
+                borderRadius: BorderRadius.circular(6.0)),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.5),
               child: Text('Union Square, San Francisco'),
-          ),
+            ),
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton(
-                  child: Text('Details'),
+              IconButton(
+                  icon: Icon(Icons.info),
+                  color: Theme.of(context).accentColor,
+                  onPressed: () => Navigator.pushNamed<bool>(
+                      context, '/product/' + index.toString())),
+              IconButton(
+                  icon: Icon(Icons.favorite_border),
+                  color: Colors.red,
                   onPressed: () => Navigator.pushNamed<bool>(
                       context, '/product/' + index.toString()))
             ],
