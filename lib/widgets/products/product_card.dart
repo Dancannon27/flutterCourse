@@ -26,15 +26,8 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Image.asset(product['image']),
-          _buildTitlePriceRow(),
-          AddressTag('Union Square, San Francisco'),
-          ButtonBar(
+  Widget _buildActionButtons(BuildContext context) {
+    return ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               IconButton(
@@ -48,7 +41,18 @@ class ProductCard extends StatelessWidget {
                   onPressed: () => Navigator.pushNamed<bool>(
                       context, '/product/' + productIndex.toString()))
             ],
-          )
+          );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Image.asset(product['image']),
+          _buildTitlePriceRow(),
+          AddressTag('Union Square, San Francisco'),
+          _buildActionButtons(context)
         ],
       ),
     );
